@@ -64,5 +64,3 @@ def accaunt():
             break
         else:
             print('Неверный пункт меню')
-
-accaunt()
