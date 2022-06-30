@@ -1,0 +1,2 @@
+files: ['directory.py', 'listdir.txt', 'My_bank_account.py', 'purchase_history.txt', 'score.txt', 'use_functions.py', 'victory.py', 'Консольный файловый менеджер.py']
+dirs: ['.git', '.idea', 'venv', '__pycache__']
