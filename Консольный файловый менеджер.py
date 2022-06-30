@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import platform
 import shutil
@@ -6,68 +8,83 @@ from victory import victorina
 from My_bank_account import accaunt
 from directory import new_directory
 
-
+name_list_isdir = []
+name_list_isfile = []
 
 while True:
-    print('1. создать папку')
-    print('2. удалить(файл/папку)')
-    print('3. копировать (файл/папку)')
-    print('4. просмотр содержимого рабочей директории')
-    print('5. посмотреть только папки')
-    print('6. посмотреть только файлы')
-    print('7. просмотр информации об операционной системе')
-    print('8. создатель программы')
-    print('9. играть в вмкторину')
-    print('10. мой банковский счет')
-    print('11. смена рабочей директории')
-    print('12. выход')
+    print('1. СЃРѕР·РґР°С‚СЊ РїР°РїРєСѓ')
+    print('2. СѓРґР°Р»РёС‚СЊ(С„Р°Р№Р»/РїР°РїРєСѓ)')
+    print('3. РєРѕРїРёСЂРѕРІР°С‚СЊ (С„Р°Р№Р»/РїР°РїРєСѓ)')
+    print('4. РїСЂРѕСЃРјРѕС‚СЂ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ СЂР°Р±РѕС‡РµР№ РґРёСЂРµРєС‚РѕСЂРёРё')
+    print('5. РїРѕСЃРјРѕС‚СЂРµС‚СЊ С‚РѕР»СЊРєРѕ РїР°РїРєРё')
+    print('6. РїРѕСЃРјРѕС‚СЂРµС‚СЊ С‚РѕР»СЊРєРѕ С„Р°Р№Р»С‹')
+    print('7. РѕРѕС…СЂР°РЅРёС‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ СЂР°Р±РѕС‡РµР№ РґРёСЂРµРєС‚РѕСЂРёРё РІ С„Р°Р№Р»')
+    print('8. РїСЂРѕСЃРјРѕС‚СЂ РёРЅС„РѕСЂРјР°С†РёРё РѕР± РѕРїРµСЂР°С†РёРѕРЅРЅРѕР№ СЃРёСЃС‚РµРјРµ')
+    print('9. СЃРѕР·РґР°С‚РµР»СЊ РїСЂРѕРіСЂР°РјРјС‹')
+    print('10. РёРіСЂР°С‚СЊ РІ РІРјРєС‚РѕСЂРёРЅСѓ')
+    print('11. РјРѕР№ Р±Р°РЅРєРѕРІСЃРєРёР№ СЃС‡РµС‚')
+    print('12. СЃРјРµРЅР° СЂР°Р±РѕС‡РµР№ РґРёСЂРµРєС‚РѕСЂРёРё')
+    print('13. РІС‹С…РѕРґ')
 
     path = os.getcwd()
-    choice = input('Выберите пункт меню: ')
+    choice = input('Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚ РјРµРЅСЋ: ')
     if choice == '1':
-        folder_name = input('Введите название папки: ')
+        folder_name = input('Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїР°РїРєРё: ')
         os.mkdir(f'{folder_name}')
-        print('Создана папка: ', folder_name)
+        print('РЎРѕР·РґР°РЅР° РїР°РїРєР°: ', folder_name)
     elif choice == '2':
-        folder_delete = input('Введите название папки, которую хотите удалить: ')
+        folder_delete = input('Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїР°РїРєРё, РєРѕС‚РѕСЂСѓСЋ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ: ')
         if os.path.exists(f'{folder_delete}'):
             os.rmdir(f'{folder_delete}')
-            print('Удалена папка: ', folder_delete)
+            print('РЈРґР°Р»РµРЅР° РїР°РїРєР°: ', folder_delete)
         else:
-            print('Неверный пункт меню')
-            print('Такой папки не существует')
+            print('РќРµРІРµСЂРЅС‹Р№ РїСѓРЅРєС‚ РјРµРЅСЋ')
+            print('РўР°РєРѕР№ РїР°РїРєРё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚')
     elif choice == '3':
-        name_folder_file = input('Введите название папки/файла: ')
-        name_folder_file_copy = input('Введите название копии папки/файла: ')
+        name_folder_file = input('Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїР°РїРєРё/С„Р°Р№Р»Р°: ')
+        name_folder_file_copy = input('Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРѕРїРёРё РїР°РїРєРё/С„Р°Р№Р»Р°: ')
         shutil.copytree(name_folder_file, name_folder_file_copy)
     elif choice == '4':
         print(os.listdir())
-    elif choice == '5':
-        name_list_isdir = []
+    elif choice == '5':         # РїСЂРѕСЃРјРѕС‚СЂ С‚РѕР»СЊРєРѕ РїР°РїРѕРє
+        # name_list_isdir = []
         # print([ name for name in os.listdir(path) if os.path.isdir(os.path.join(path, name))])
         for name in os.listdir(path):
             if os.path.isdir(os.path.join(path, name)):
                 name_list_isdir.append(name)
         print(name_list_isdir)
-    elif choice == '6':
-        name_list_isfile = []
+    elif choice == '6':         # РїСЂРѕСЃРјРѕС‚СЂ С‚РѕР»СЊРєРѕ С„Р°Р№Р»РѕРІ
+        # name_list_isfile = []
         # print([ name for name in os.listdir(path) if os.path.isfile(os.path.join(path, name)) ])
         for name in os.listdir(path):
             if os.path.isfile(os.path.join(path, name)):
                 name_list_isfile.append(name)
         print(name_list_isfile)
     elif choice == '7':
+        for name in os.listdir(path):
+            if os.path.isfile(os.path.join(path, name)):
+                name_list_isfile.append(name)
+        with open('listdir.txt', 'w') as f:
+            f.write(f'files: ')
+            f.write(f'{name_list_isfile}\n')
+        for name in os.listdir(path):
+            if os.path.isdir(os.path.join(path, name)):
+                name_list_isdir.append(name)
+        with open('listdir.txt', 'a') as f:
+            f.write(f'dirs: ')
+            f.write(f'{name_list_isdir}\n')
+    elif choice == '8':
         print(sys.platform)
         print(platform.system())
-    elif choice == '8':
-        print('Создатель программы:  Курочкин Александр Васильевич')
     elif choice == '9':
-        victorina()
+        print('РЎРѕР·РґР°С‚РµР»СЊ РїСЂРѕРіСЂР°РјРјС‹:  РљСѓСЂРѕС‡РєРёРЅ РђР»РµРєСЃР°РЅРґСЂ Р’Р°СЃРёР»СЊРµРІРёС‡')
     elif choice == '10':
-        accaunt()
+        victorina()
     elif choice == '11':
-        new_directory()
+        accaunt()
     elif choice == '12':
+        new_directory()
+    elif choice == '13':
         break
     else:
-        print('Неверный пункт меню')
+        print('РќРµРІРµСЂРЅС‹Р№ РїСѓРЅРєС‚ РјРµРЅСЋ')

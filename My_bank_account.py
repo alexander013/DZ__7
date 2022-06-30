@@ -60,4 +60,3 @@ def accaunt():
         else:
             print('Неверный пункт меню')
 
-accaunt()
