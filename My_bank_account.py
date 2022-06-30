@@ -1,3 +1,6 @@
+import os
+
+
 # ЗАДАНИЕ 1
 # 1. В подпрограмме Мой банковский счет;
 # 2. Добавить сохранение суммы счета в файл.
@@ -12,9 +15,16 @@
 # При следующем открытии программы прочитать историю и новые покупки уже добавлять к ней;
 
 def accaunt():
-    score = []                             # список куда сохраняется сумма пополняемого счета
-    purchase_list = []
+
+    score = 0
+
+    FILE_NAME = 'purchase_history.txt'
+
     purchases_dict = {}
+    if os.path.exists(FILE_NAME):
+        with open(FILE_NAME, 'r') as f:
+            for history in f:
+                print(str(history).replace("{", "").replace("}", ""))
 
     while True:
         print('1. пополнение счета')
@@ -25,21 +35,25 @@ def accaunt():
         choice = input('Выберите пункт меню: ')
         if choice == '1':
             summa = float(input('Введите сумму пополнения счёта: '))
-            score.append(summa)
+            score = score + summa
             with open('score.txt', 'a') as f:
-                f.write(f'{sum(score)}\n')        # запись в файл суммы счета
+                f.write(f'Текущий личный счёт: ')
+                f.write(f'{score}\n')        # запись в ЛИЧНОГО счета
         elif choice == '2':
             summa_purchase = float(input('Введите сумму покупки: '))
-            if summa_purchase > sum(score):
+            if summa_purchase > score:
                     print('Денег не хватает')
-            elif summa_purchase <= sum(score):
+            elif summa_purchase <= score:
+                score = score - summa_purchase
+                with open('score.txt', 'a') as f:
+                    f.write(f'Остаток личного счёта: ')
+                    f.write(f'{score}\n')
                 purchase_name = input('Введите название покупки: ')
-                purchase_list.append(purchase_name)
-                # purchases_dict[purchase_name] = summa_purchase
+                purchases_dict[purchase_name] = summa_purchase
+                print(purchases_dict)
         elif choice == '3':
-            with open('purchase_history.txt', 'a') as f:
-                for purchases in purchase_list:
-                    purchases_dict[purchases] = summa_purchase
+            with open(FILE_NAME, 'a') as f:
+                f.write(f'Покупки: ')
                 f.write(f'{purchases_dict}\n')
         elif choice == '4':
             break
