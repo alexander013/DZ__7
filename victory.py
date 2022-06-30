@@ -85,4 +85,3 @@ def victorina():
     print('Количество неверных ответов: ', len(no_correct_answer))
     # Предложение начать заново
     print('Начинаем сначала !!')
-    return None

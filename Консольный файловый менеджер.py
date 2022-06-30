@@ -3,7 +3,7 @@ import platform
 import shutil
 import sys
 from victory import victorina
-from use_functions import accaunt
+from My_bank_account import accaunt
 from directory import new_directory
 
 
