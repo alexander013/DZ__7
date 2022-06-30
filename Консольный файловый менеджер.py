@@ -47,15 +47,11 @@ while True:
     elif choice == '4':
         print(os.listdir())
     elif choice == '5':         # просмотр только папок
-        # name_list_isdir = []
-        # print([ name for name in os.listdir(path) if os.path.isdir(os.path.join(path, name))])
         for name in os.listdir(path):
             if os.path.isdir(os.path.join(path, name)):
                 name_list_isdir.append(name)
         print(name_list_isdir)
     elif choice == '6':         # просмотр только файлов
-        # name_list_isfile = []
-        # print([ name for name in os.listdir(path) if os.path.isfile(os.path.join(path, name)) ])
         for name in os.listdir(path):
             if os.path.isfile(os.path.join(path, name)):
                 name_list_isfile.append(name)

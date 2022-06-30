@@ -1,5 +1,6 @@
 import os
-
+import json
+import simplejson as json
 
 # ЗАДАНИЕ 1
 # 1. В подпрограмме Мой банковский счет;
@@ -50,13 +51,18 @@ def accaunt():
                     f.write(f'{score}\n')
                 purchase_name = input('Введите название покупки: ')
                 purchases_dict[purchase_name] = summa_purchase
-                print(purchases_dict)
+                result = json.dumps(purchases_dict)
         elif choice == '3':
             with open(FILE_NAME, 'a') as f:
                 f.write(f'Покупки: ')
                 f.write(f'{purchases_dict}\n')
+            print(purchases_dict)
+            with open('purchase_history.json', 'w') as f:
+                json.dump(purchases_dict, f)
+
         elif choice == '4':
             break
         else:
             print('Неверный пункт меню')
 
+accaunt()
