@@ -39,6 +39,7 @@ def victorina():
     for i in result_dict_people_data:
         people = input('Введите дату рождения ' + i + ': ')
         if people == people_Boui_data:
+            print(type(people))
             correct_answer.append(people)
         elif people == people_Ormond_data:
             correct_answer.append(people)

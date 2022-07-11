@@ -24,8 +24,9 @@ def accaunt():
     purchases_dict = {}
     if os.path.exists(FILE_NAME):
         with open(FILE_NAME, 'r') as f:
-            for history in f:
-                print(str(history).replace("{", "").replace("}", ""))
+            # for history in f:
+            #     print(str(history).replace("{", "").replace("}", ""))
+            print(str(history).replace("{", "").replace("}", "") for history in f)
 
     while True:
         print('1. пополнение счета')
